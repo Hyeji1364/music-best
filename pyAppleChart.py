@@ -10,10 +10,11 @@ from datetime import datetime
 import time
 import json
 
+
 # 현재 날짜 가져오기
 current_date = datetime.now().strftime("%Y-%m-%d")
-folder_path = "appleChart"
-filename = f"{folder_path}/appleChart100_{current_date}.json"
+folder_path = "apple"
+filename = f"{folder_path}/apple100_{current_date}.json"
 
 # 웹드라이브 설치
 options = ChromeOptions()
@@ -25,6 +26,7 @@ browser.get("https://music.apple.com/kr/playlist/%EC%98%A4%EB%8A%98%EC%9D%98-top
 WebDriverWait(browser, 10).until(
     EC.presence_of_element_located((By.CLASS_NAME, "songs-list"))
 )
+
 # 업데이트된 페이지 소스를 변수에 저장
 html_source_updated = browser.page_source
 soup = BeautifulSoup(html_source_updated, 'html.parser')
